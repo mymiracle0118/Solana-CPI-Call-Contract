@@ -3,13 +3,15 @@
     "test": "pnpm ts-mocha -p ./tsconfig.json -t 1000000 ./tests/test.ts",
     "build-and-test": "cargo build-sbf --sbf-out-dir=./tests/fixtures && pnpm test",
     "build": "cargo build-sbf --sbf-out-dir=./program/target/so",
-    "deploy": "solana program deploy ./program/target/so/program.so"
+    "deploy_hand": "solana program deploy --program-id ./tests/fixtures/cross_program_invocatio_native_hand-keypair.json ./tests/fixtures/cross_program_invocatio_native_hand.so",
+    "deploy_lever": "solana program deploy --program-id ./tests/fixtures/cross_program_invocatio_native_lever-keypair.json ./tests/fixtures/cross_program_invocatio_native_lever.so"
   },
   "dependencies": {
     "@solana/web3.js": "^1.47.3",
     "borsh": "^0.7.0",
     "buffer": "^6.0.3",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "pnpm": "^9.6.0"
   },
   "devDependencies": {
     "@types/bn.js": "^5.1.0",

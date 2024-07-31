@@ -7,10 +7,10 @@ function createKeypairFromFile(path: string): Keypair {
 }
 
 describe('CPI Example', () => {
-  const connection = new Connection('http://localhost:8899', 'confirmed');
+  const connection = new Connection('https://api.devnet.solana.com', 'confirmed');
   const payer = createKeypairFromFile(`${require('node:os').homedir()}/.config/solana/id.json`);
-  const hand = createKeypairFromFile('./target/so/hand-keypair.json');
-  const lever = createKeypairFromFile('./target/so/lever-keypair.json');
+  const hand = createKeypairFromFile('./tests/fixtures/cross_program_invocatio_native_hand-keypair.json');
+  const lever = createKeypairFromFile('./tests/fixtures/cross_program_invocatio_native_lever-keypair.json');
 
   class Assignable {
     constructor(properties) {
