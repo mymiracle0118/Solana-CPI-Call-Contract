@@ -1,5 +1,6 @@
-use borsh::BorshDeserialize;
-use cross_program_invocatio_native_lever::SetPowerStatus;
+// use borsh::BorshDeserialize;
+use borsh::{BorshDeserialize, BorshSerialize};
+// use cross_program_invocatio_native_lever::SetPowerStatus;
 use solana_program::{
     account_info::{next_account_info, AccountInfo},
     entrypoint,
@@ -10,6 +11,11 @@ use solana_program::{
 };
 
 entrypoint!(pull_lever);
+
+#[derive(BorshDeserialize, BorshSerialize, Debug)]
+pub struct SetPowerStatus {
+    pub name: String,
+}
 
 fn pull_lever(
     _program_id: &Pubkey,
